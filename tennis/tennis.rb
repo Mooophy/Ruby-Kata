@@ -1,3 +1,4 @@
+=begin
 class Player
 	
 	def initialize(name)
@@ -11,8 +12,11 @@ class Player
 	end	
 
 end
-
+=end
 class Tennis
+
+  def initialize
+  end
 =begin
 	private
 	def initialize 
