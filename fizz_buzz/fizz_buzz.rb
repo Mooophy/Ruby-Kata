@@ -5,23 +5,3 @@ class FizzBuzz
     ret
   end
 end
-=begin
-    print = String.new
-    for i in 1..100
-      fizz = (i%3 == 0)
-      buzz = (i%5 == 0)
-      if fizz && buzz
-        print += "FizzBuzz\n"
-      elsif fizz
-        print += "Fizz\n"
-      elsif buzz
-        print += "Buzz\n"
-      else
-        print += "#{i}\n"
-      end
-    end
-    print
-
-  end
-end
-=end
