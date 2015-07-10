@@ -45,8 +45,4 @@ class Store
     array.each { |id| details += @data[id].to_s + "\n" }
     details + "total $" + calculate_cost(array).to_s
   end
-end    
-
-
-
-
+end
