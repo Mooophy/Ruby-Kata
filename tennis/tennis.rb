@@ -3,15 +3,15 @@ class Tennis
   def initialize(home, away)
     @home = home
     @away = away
-    @scores = {home => 0, away = 0}
+    @scores = { home => 0, away = 0 }
     @winner = nil
   end
 
   def score_by!(player)
     if @scores[player]
-      if (0..2) === @scores[player]
+      if (0...3) === @scores[player]
         @scores[player] += 1
-      elsif @duel?
+      elsif duel?
         @scores[player] = :advantage
       elsif @scores[player] == :advantage
         @winner = player
@@ -26,12 +26,17 @@ class Tennis
   end
 
   def result
-#    @winner ? @winner.to_s : ""
+    return @winner.to_s if @winner
+    duel? ? "Duel!" : "#{convert(@scores[@home])} : #{convert(@scores[@away])}"
+  end
+  
+  private
+  def duel?
+    @scores[@home] == 3 and @scores[@away] == 3
   end
 
-  def duel?
-    result = true
-    @score_table.each_value {|value| result = false if value != 3}
-    result
+  def convert(score)
+    score == 3 ? 40 : score * 15
   end
+
 end
