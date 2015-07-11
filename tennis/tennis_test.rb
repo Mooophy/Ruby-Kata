@@ -34,7 +34,9 @@ describe Tennis do
     assert_equal("advantage : 40", tennis.result)
     tennis.score_by!(:Bar)
     assert_equal("Duel!", tennis.result)
-   
+    
+    2.times { tennis.score_by!(:Bar) }
+    assert_equal("Bar won!", tennis.result)  
   end
 end
 

@@ -39,7 +39,7 @@ class Tennis
   end
 
   def result
-    return "#{@winner} won !" if @winner
+    return "#{@winner} won!" if @winner
     duel? ? "Duel!" : "#{self.class.convert(@scores[@home])} : #{self.class.convert(@scores[@away])}"
   end
   
