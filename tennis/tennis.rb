@@ -1,7 +1,8 @@
 class Tennis
 
-  def self.convert(i)
-    i == 3 ? 40 : i * 15
+  def self.convert(score)
+    return score == 3 ? 40 : score * 15 if score.is_a? Numeric
+    score
   end
 
   def initialize(home, away)
@@ -28,8 +29,8 @@ class Tennis
       elsif @scores[player] == :advantage
         @winner = player
         @scores = nil
-      elsif @scores.any? {|key, value| value == :advantage}
-        @scores.each_value {|value| value = 3}
+      elsif @scores.any? {|_, value| value == :advantage}
+        @scores.each {|key, _| @scores[key] = 3}
       end
       true    
     else

@@ -29,6 +29,12 @@ describe Tennis do
     
     [:Foo, :Bar, :Bar].each { |player| tennis.score_by!(player) }
     assert_equal("Duel!", tennis.result)
+
+    tennis.score_by!(:Foo)
+    assert_equal("advantage : 40", tennis.result)
+    tennis.score_by!(:Bar)
+    assert_equal("Duel!", tennis.result)
+   
   end
 end
 
