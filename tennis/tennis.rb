@@ -1,11 +1,22 @@
 class Tennis
 
+  def self.convert(i)
+    i == 3 ? 40 : i * 15
+  end
+
   def initialize(home, away)
     @home = home
     @away = away
     @scores = { home => 0, away = 0 }
     @winner = nil
   end
+
+  def play!
+    yield "Please enter two players name"
+    loop do
+      @score_by(yield @result)
+    break unless @winner == nil
+  end  
 
   def score_by!(player)
     if @scores[player]
@@ -26,17 +37,13 @@ class Tennis
   end
 
   def result
-    return @winner.to_s if @winner
-    duel? ? "Duel!" : "#{convert(@scores[@home])} : #{convert(@scores[@away])}"
+    return "#{@winner} won !"if @winner
+    duel? ? "Duel!" : "#{self.class.convert(@scores[@home])} : #{self.class.convert(@scores[@away])}"
   end
   
   private
   def duel?
     @scores[@home] == 3 and @scores[@away] == 3
-  end
-
-  def convert(score)
-    score == 3 ? 40 : score * 15
   end
 
 end
