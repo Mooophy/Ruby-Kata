@@ -7,10 +7,10 @@ class Tennis
   def initialize(home, away)
     @home = home
     @away = away
-    @scores = { home => 0, away = 0 }
+    @scores = { home => 0, away => 0 }
     @winner = nil
   end
-
+=begin
   def play!
     yield "Please enter two players name"
     loop do
@@ -45,5 +45,6 @@ class Tennis
   def duel?
     @scores[@home] == 3 and @scores[@away] == 3
   end
+=end
 
 end

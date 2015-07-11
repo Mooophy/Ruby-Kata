@@ -1,15 +1,14 @@
 require 'minitest/autorun'
 require './tennis'
-describe Player do
-end
 
-=begin
 describe Tennis do
-	it "start with 0 score" do
-		tennis = Tennis.new
-		assert_equal("0,0", tennis.current_score)
+	it "has class method that converts score to points" do
+		assert_equal(0 , Tennis.convert(0))
+    assert_equal(15, Tennis.convert(1))
+    assert_equal(30, Tennis.convert(2))
+    assert_equal(40, Tennis.convert(3))   
 	end
-=end
+end
 
 =begin
 
@@ -43,4 +42,3 @@ describe Tennis do
 
 =end
 
-=end
