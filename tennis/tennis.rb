@@ -1,21 +1,32 @@
 class Tennis
 
-  def initialize(player1, player2)
-    @score_table = {player1 => 0, player2 => 0}
+  def initialize(home, away)
+    @home = home
+    @away = away
+    @scores = {home => 0, away = 0}
+    @winner = nil
   end
 
-  def score(player)
-    if @score_table[player]
-      if (0..2).include? @score_table[player]
-        @score_table[player] += 1
+  def score_by!(player)
+    if @scores[player]
+      if (0..2) === @scores[player]
+        @scores[player] += 1
       elsif @duel?
-        @score_table[player] = "advantage"
-        
-        
-      return true    
+        @scores[player] = :advantage
+      elsif @scores[player] == :advantage
+        @winner = player
+        @scores = nil
+      elsif @scores.any? {|key, value| value == :advantage}
+        @scores.each_value {|value| value = 3}
+      end
+      true    
     else
       false   
     end
+  end
+
+  def result
+#    @winner ? @winner.to_s : ""
   end
 
   def duel?
