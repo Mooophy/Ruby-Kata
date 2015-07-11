@@ -16,7 +16,8 @@ class Tennis
     loop do
       @score_by(yield @result)
     break unless @winner == nil
-  end  
+  end
+=end  
 
   def score_by!(player)
     if @scores[player]
@@ -37,7 +38,7 @@ class Tennis
   end
 
   def result
-    return "#{@winner} won !"if @winner
+    return "#{@winner} won !" if @winner
     duel? ? "Duel!" : "#{self.class.convert(@scores[@home])} : #{self.class.convert(@scores[@away])}"
   end
   
@@ -45,6 +46,5 @@ class Tennis
   def duel?
     @scores[@home] == 3 and @scores[@away] == 3
   end
-=end
 
 end
