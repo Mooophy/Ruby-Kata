@@ -2,11 +2,16 @@ require 'minitest/autorun'
 require './tennis'
 
 describe Tennis do
+
   it "has class method that converts score to points" do
     assert_equal(0 , Tennis.convert(0))
     assert_equal(15, Tennis.convert(1))
     assert_equal(30, Tennis.convert(2))
     assert_equal(40, Tennis.convert(3))
+  end
+
+  it "can be new with two players id" do
+    tennis = Tennis.new(:Foo, :Bar)
   end
 end
 
