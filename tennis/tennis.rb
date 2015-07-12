@@ -48,9 +48,4 @@ class Tennis
   def duel?
     @scores[@home] == 3 and @scores[@away] == 3
   end
-
-  def another(player)
-    player == @home ? @away  : @home
-  end  
-
 end
