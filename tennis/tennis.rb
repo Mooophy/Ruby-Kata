@@ -11,14 +11,13 @@ class Tennis
     @scores = { home => 0, away => 0 }
     @winner = nil
   end
-=begin
+  
   def play!
-    yield "Please enter two players name"
     loop do
-      @score_by(yield @result)
-    break unless @winner == nil
+      score_by!(yield @result)
+      break unless @winner == nil
+    end
   end
-=end  
 
   def score_by!(player)
     if @scores[player]
