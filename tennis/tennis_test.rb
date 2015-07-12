@@ -38,7 +38,7 @@ describe Tennis do
     assert_equal(:Bar, tennis.winner)
   end
 
-  it "can play , case 2" do
+  it "can play , case 2 for array" do
     puts :test_case2
     tennis = Tennis.new(:F, :B)
     
@@ -54,5 +54,16 @@ describe Tennis do
     2.times {tennis.score_by!(:B)}
     assert_equal(:B, tennis.winner)
   end
+
+  it "can play, case 3 for duck typing" do
+    puts :test_case3
+    tennis = Tennis.new(42,99)
+    tennis.play! do |result| 
+      puts result
+      42
+    end
+    assert_equal(42, tennis.winner)
+
+  end 
 
 end
