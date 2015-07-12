@@ -2,11 +2,6 @@ class Tennis
 
   attr_reader :winner 
 
-  def self.convert(score)
-    return score == 3 ? 40 : score * 15 if score.is_a? Numeric
-    score
-  end
-
   def initialize(home, away)
     @home = home
     @away = away
@@ -41,7 +36,11 @@ class Tennis
 
   def result
     return "#{@winner} won!" if @winner
-    duel? ? "Duel!" : "#{self.class.convert(@scores[@home])} : #{self.class.convert(@scores[@away])}"
+    to_points = lambda do |score|  
+      return score == 3 ? 40 : score * 15 if score.is_a? Numeric
+      score
+    end  
+    duel? ? "Duel!" : "#{ to_points.call(@scores[@home]) } : #{ to_points.call(@scores[@away]) }"
   end
   
   private
