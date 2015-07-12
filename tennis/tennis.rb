@@ -32,7 +32,6 @@ class Tennis
         @winner = player
       else
         @scores[player] += 1
-#      true
       end 
       true
     else
