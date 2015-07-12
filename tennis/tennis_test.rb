@@ -38,4 +38,13 @@ describe Tennis do
     2.times { tennis.score_by!(:Bar) }
     assert_equal("Bar won!", tennis.result)  
   end
+
+  it "can play" do
+    tennis = Tennis.new(:Foo, :Bar)
+    tennis.play! do |result| 
+      puts result
+      :Bar
+    end
+  end
+
 end

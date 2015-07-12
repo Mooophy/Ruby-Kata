@@ -1,5 +1,7 @@
 class Tennis
 
+  attr_reader :winner 
+
   def self.convert(score)
     return score == 3 ? 40 : score * 15 if score.is_a? Numeric
     score
@@ -13,14 +15,19 @@ class Tennis
   end
   
   def play!
-    loop do
-      score_by!(yield @result)
-      break unless @winner == nil
+    while score_by!(yield result)
     end
+
+=begin
+    loop do
+      score_by!(yield result)
+      break if @winner != nil
+    end
+=end
   end
 
   def score_by!(player)
-    if @scores[player]
+    if @winner== nil and @scores[player]
       if (0...3) === @scores[player]
         @scores[player] += 1
       elsif duel?
