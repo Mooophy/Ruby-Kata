@@ -18,30 +18,24 @@ class Tennis
     while @winner == nil
       score_by!(yield result)
     end
-
-=begin
-    loop do
-      score_by!(yield result)
-      break if @winner != nil
-    end
-=end
   end
 
   def score_by!(player)
-    if @scores[player]
-      if (0...3) === @scores[player]
-        @scores[player] += 1
-      elsif duel?
+    if @winner == nil and @scores[player]
+      another = player == @home ? @away : @home
+      if duel?
         @scores[player] = :advantage
+      elsif @scores[another] == :advantage
+        @scores[@home] = 3
+        @scores[@away] = 3
       elsif @scores[player] == :advantage or @scores[player] == 3
         @winner = player
-        #@scores = nil
-      elsif @scores.any? {|_, value| value == :advantage}
-        @scores.each {|key, _| @scores[key] = 3}
-      end
-      true    
+      else
+        @scores[player] += 1
+      true
+      end 
     else
-      false   
+      false  
     end
   end
 
@@ -54,5 +48,9 @@ class Tennis
   def duel?
     @scores[@home] == 3 and @scores[@away] == 3
   end
+
+  def another(player)
+    player == @home ? @away  : @home
+  end  
 
 end

@@ -45,6 +45,7 @@ describe Tennis do
       puts result
       :Bar
     end
+    assert_equal(:Bar, tennis.winner)
   end
 
 end
