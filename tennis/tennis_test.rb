@@ -55,7 +55,7 @@ describe Tennis do
     assert_equal(:B, tennis.winner)
   end
 
-  it "can play, case 3 for duck typing" do
+  it "can play, case 3 with int" do
     puts :test_case3
     tennis = Tennis.new(42,99)
     tennis.play! do |result| 
@@ -63,7 +63,6 @@ describe Tennis do
       42
     end
     assert_equal(42, tennis.winner)
-
   end 
 
 end
