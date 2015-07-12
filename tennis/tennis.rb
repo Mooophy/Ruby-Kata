@@ -3,8 +3,8 @@ class Tennis
   attr_reader :winner 
 
   def initialize(home, away)
-    @home = home
-    @away = away
+    @home   = home
+    @away   = away
     @scores = { home => 0, away => 0 }
     @winner = nil
   end
@@ -35,7 +35,7 @@ class Tennis
   end
 
   def result
-    return "#{@winner} won!" if @winner
+    return "#{ @winner } won!" if @winner
     to_points = lambda do |score|  
       return score == 3 ? 40 : score * 15 if score.is_a? Numeric
       score
