@@ -41,7 +41,6 @@ describe Tennis do
   it "can play , case 2 for array" do
     puts :test_case2
     tennis = Tennis.new(:F, :B)
-    
     arr = [:F, :B, :F, :B, :F, :B, :F, :B, :F, :B]
     i = 0
     tennis.play! do |result|
@@ -50,7 +49,6 @@ describe Tennis do
       arr[i += 1]
     end
     assert_equal(nil, tennis.winner)
-        
     2.times {tennis.score_by!(:B)}
     assert_equal(:B, tennis.winner)
   end
