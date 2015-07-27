@@ -28,4 +28,17 @@ ActiveRecord::Schema.define do
 
 end
 
+class Car < ActiveRecord::Base
+  has_and_belongs_to_many :drivers
+  belongs_to :owner
+end
+
+class Driver < ActiveRecord::Base
+  has_and_belongs_to_many :cars
+end
+
+class Owner < ActiveRecord::Base
+  has_many :cars
+end
+
 puts :yeah_working_by_alan
