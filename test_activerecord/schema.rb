@@ -14,8 +14,8 @@ ActiveRecord::Schema.define do
   end 
 
   create_table :cars_drivers, id: false do |t|
-    t.integer   :product_id,  limit: 4
-    t.integer   :purchase_id, limit: 4
+    t.integer   :car_id,      limit: 4
+    t.integer   :driver_id,   limit: 4
   end
 
   create_table :drivers do |t|
