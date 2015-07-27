@@ -1,6 +1,6 @@
 require 'active_record'
 
-Active::Base.establish_connection adapter: "sqlite3", database: ":memory"
+ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 ActiveRecord::Schema.define do
 
@@ -28,4 +28,4 @@ ActiveRecord::Schema.define do
 
 end
 
-puts :testing
+puts :yeah_working_by_alan
