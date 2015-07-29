@@ -3,7 +3,8 @@
 ## Handy tools
  * [vim-pathogen](https://github.com/tpope/vim-pathogen)
  *  [Navigating your bundled gems in Vim](http://effectif.com/vim/using-ctags-with-bundler-gems)
-##.Vimrc
+
+## Vimrc
 ```vim
 set tags+=gems.tags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
