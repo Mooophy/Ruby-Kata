@@ -1,5 +1,4 @@
 # Ruby-Kata
-Exercises for Ruby
 ---------------------
 ## Handy tools
  * [vim-pathogen](https://github.com/tpope/vim-pathogen)
