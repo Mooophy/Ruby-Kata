@@ -10,7 +10,6 @@ set tags+=gems.tags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-
 " size of a hard tabstop
 set tabstop=4
 
