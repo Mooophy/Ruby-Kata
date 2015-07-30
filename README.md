@@ -29,4 +29,6 @@ set expandtab
 
 execute pathogen#infect()
 
+set number
+
 ```
