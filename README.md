@@ -27,7 +27,7 @@ set smarttab
 set expandtab
 
 set number
-set syntax on
+syntax on
 
 
 ```
