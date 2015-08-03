@@ -26,8 +26,8 @@ set smarttab
 " always uses spaces instead of tab characters
 set expandtab
 
-execute pathogen#infect()
-
 set number
+set syntax on
+
 
 ```
